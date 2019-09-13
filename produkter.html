@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!-- Fortæller det er html5 -->
+<!-- html starter og slutter hele dokumentet / lang=da: Fortæller siden er på dansk -->
+<html lang="da">
+
+<!-- I <head> har man opsætning - alt det som man ikke ser som selve indholdet -->
+<head>
+
+    <!-- Sætter tegnsætning til utf-8 som bl.a. tillader danske bogstaver -->
+    <meta charset="utf-8">
+
+    <!-- Titel som ses oppe i browserens tab mv. -->
+    <title>Sigende titel</title>
+
+    <!-- Metatags der fortæller at søgemaskiner er velkomne, hvem der udgiver siden og copyright information -->
+    <meta name="robots" content="All">
+    <meta name="author" content="Udgiver">
+    <meta name="copyright" content="Information om copyright">
+
+    <!-- Sikrer man kan benytte CSS ved at tilkoble en CSS fil -->
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Sikrer den vises korrekt på mobil, tablet mv. ved at tage ift. skærmstørrelse -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<!-- i <body> har man alt indhold på siden -->
+<body>
+
+<header>
+    <div class="logo">
+        <a href="index.html"><h2>Logo</h2></a>
+    </div>
+    <div class="menu">
+        <ul class="menutekst" style="list-style: none;">
+            <li><a href="produkter.html">Shop</a></li>
+            <li><a href="omvinen.html">Om vinen</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+
+    </div>
+</header>
+
+<section>
+    <div class="grid_produkter">
+
+    </div>
+</section>
+
+<footer>
+    <div class="footer">
+        <div class="column column1">
+            <div class="container1">
+                <h2>Produkter</h2>
+                <a href="produkter.html">Vin</a>
+            </div>
+            <div class="container2">
+                <h2>om</h2>
+                <a href="kontakt.html">Karriere og internships</a>
+            </div>
+
+        </div>
+        <div class="column column2">
+            <div class="container3">
+                <h2>Customer support</h2>
+                <a href="kontakt.html">kontakt os</a>
+            </div>
+
+        </div>
+        <div class="social" style="display: block; font-size: 35px; margin: 21px 0 0 -4px;">
+            <a href="#" class="fa fa-facebook"></a>
+            <a href="#" class="fa fa-instagram"></a>
+        </div>
+    </div>
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function (e) {
+    });
+</script>
+</body>
+</html>

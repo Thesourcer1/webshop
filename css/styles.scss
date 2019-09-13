@@ -1,0 +1,179 @@
+/* Alt der gælder for mobil og højere */
+
+* { /* Gælder alt på hele siden */
+  -webkit-box-sizing: border-box; /* -webkit- browserunderstøttelse */
+  box-sizing: border-box; /* Bokse har altid den størrelse man giver uanset om der tilføjes margen mv. */
+}
+
+body {
+  margin: 0; /* Ingen kanter i siden af browser */
+  font-family: "Courier New", "Calibri Light", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0; /* Ingen ydre margen fra overskrifter */
+  padding: 0; /* Ingen indre margen fra overskrifter */
+}
+
+ul, ol {
+  margin: 0; /* Ingen ydre margen fra lister */
+  padding: 0; /* Ingen indre margen fra lister */
+  list-style-position: inside; /* List punkter står på linje */
+}
+
+li {
+  margin: 0; /* Ingen ydre margen fra listpunkter */
+}
+
+p {
+  margin: 0; /* Ingen ydre margen fra paragraffer */
+  padding: 0; /* Ingen indre margen fra paragraffer */
+}
+
+/* Sikrer billeder er responsive */
+img {
+  display: block; /* Billeder er et element (laver linjeskift) */
+  max-width: 100%; /* Bredde må maks fylde 100% */
+  height: auto; /* Højden skal tilpasse sig */
+}
+
+header {
+  height: 230px;
+  padding: 30px;
+  background: beige;
+  color: black;
+  list-style: none;
+  text-decoration: none;
+
+}
+.logo {
+  position: relative;
+  right: 10px;
+  font-size: 25px;
+  text-decoration: none;
+  top: 30px;
+}
+.menu {
+  margin-bottom: 10px;
+  margin-top: 50px;
+  width: 100%;
+}
+.menutekst {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  text-decoration: none;
+  font-size: 16px;
+}
+a {
+  font-family:"Courier New", "Calibri Light", sans-serif;
+  color: black;
+  letter-spacing: 0.5px;
+  text-align: center;
+  text-decoration: none;
+  padding: 6px;
+}
+li {
+  text-decoration: none;
+}
+
+#slider {
+  position: relative;
+  overflow: hidden;
+}
+
+#slider ul {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: 100px;
+  list-style: none;
+}
+
+#slider ul li {
+  position: relative;
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 400px;
+  background: #ccc;
+  text-align: center;
+  line-height: 300px;
+}
+
+a.control_prev, a.control_next {
+  position: absolute;
+  top: 40%;
+  z-index: 999;
+  display: block;
+  padding: 4% 3%;
+  width: auto;
+  height: auto;
+  background: #2a2a2a;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 18px;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+a.control_prev:hover, a.control_next:hover {
+  opacity: 1;
+  -webkit-transition: all 0.2s ease;
+}
+
+a.control_prev {
+  border-radius: 0 2px 2px 0;
+}
+
+a.control_next {
+  right: 0;
+  border-radius: 2px 0 0 2px;
+}
+
+.footer{
+
+  padding: 50px 20px 50px 20px;
+  background: beige;
+
+}
+
+.social {
+  display: block;
+  padding: 0;
+  font-size: 30px;
+  margin: 21px 0 0 -16px;
+}
+
+.fa:hover {
+  opacity: 0.7;
+}
+
+.fa-facebook {
+  color: black;
+  font-size: 30px;
+}
+.fa-instagram {
+  color: black;
+  font-size: 30px;
+}
+
+
+@media screen and (min-width: 768px) {
+  /* Alt der ændres i tablet stående fra mobil */
+}
+
+@media screen and (min-width: 992px) {
+  /* Alt der ændres i tablet liggende fra mobil og tablet stående */
+}
+
+@media screen and (min-width: 1200px) {
+  /* Alt der ændres i computer fra mobil, tablet stående og tablet liggende */
+}
+
+@media print {
+  /* Alt der gælder for print specifikt */
+}
