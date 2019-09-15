@@ -29,9 +29,13 @@
 <body>
 
 <header>
+
     <div class="logo">
         <a href="index.html"><h2>Logo</h2></a>
     </div>
+
+    <span><i class="shopping-cart"></i></span>
+
     <div class="menu">
         <ul class="menutekst" style="list-style: none;">
             <li><a href="produkter.html">Shop</a></li>
@@ -45,6 +49,57 @@
 <section>
     <div class="grid_produkter">
 
+            <div class="clear"></div>
+            <!-- items -->
+            <div class="items">
+                <!-- single item -->
+                <div class="item">
+                    <img src="image/Produkter/red-wine-3240961_1280.jpg" alt="item" />
+                    <h2>Rød vin</h2>
+
+                    <p>Pris: <em>250 DK</em>
+                    </p>
+                    <button class="add-to-cart" type="button">Tilføj til kurv</button>
+                </div>
+                <!--/ single item -->
+                <!-- single item -->
+                <div class="item">
+                    <img src="image/Produkter/bordeaux-150955_1280.png" alt="item" />
+                    <h2>Bordeaux vin</h2>
+
+                    <p>Pris: <em>329 DK</em>
+                    </p>
+                    <button class="add-to-cart" type="button">Tilføj til kurv</button>
+                </div>
+                <!--/ single item -->'
+                <div class="item">
+                    <img src="image/Produkter/wine-360298_1280.jpg" alt="item" />
+                    <h2>Hvid vin</h2>
+
+                    <p>Pris <em>200 DK</em>
+                    </p>
+                    <button class="add-to-cart" type="button">Tilføj til kurv</button>
+                </div>
+                <!-- single item -->
+                <div class="item">
+                    <img src="image/Produkter/white-wine-3185546_1280.jpg" alt="item" />
+                    <h2>Hvid vin</h2>
+
+                    <p>Pris <em>159 DK</em>
+                    </p>
+                    <button class="add-to-cart" type="button">Tilføj til kurv</button>
+                </div>
+                <!--/ single item -->
+                <div class="item">
+                    <img src="image/Produkter/champagne-146885_1280.png" alt="item" />
+                    <h2>Champagne</h2>
+
+                    <p>Pris <em>299 DK</em>
+                    </p>
+                    <button class="add-to-cart" type="button">Tilføj til kurv</button>
+                </div>
+            </div>
+            <!--/ items -->
     </div>
 </section>
 
@@ -74,9 +129,48 @@
         </div>
     </div>
 </footer>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
-    $(document).ready(function (e) {
+    $(document).ready(function () {
+        $('.add-to-cart').on('click', function () {
+            var cart = $('.shopping-cart');
+            var imgtodrag = $(this).parent('.item').find("img").eq(0);
+            if (imgtodrag) {
+                var imgclone = imgtodrag.clone()
+                    .offset({
+                        top: imgtodrag.offset().top,
+                        left: imgtodrag.offset().left
+                    })
+                    .css({
+                        'opacity': '0.5',
+                        'position': 'absolute',
+                        'height': '150px',
+                        'width': '150px',
+                        'z-index': '100'
+                    })
+                    .appendTo($('body'))
+                    .animate({
+                        'top': cart.offset().top + 10,
+                        'left': cart.offset().left + 10,
+                        'width': 75,
+                        'height': 75
+                    }, 1000, 'easeInOutExpo');
+
+                setTimeout(function () {
+                    cart.effect("shake", {
+                        times: 2
+                    }, 200);
+                }, 1500);
+
+                imgclone.animate({
+                    'width': 0,
+                    'height': 0
+                }, function () {
+                    $(this).detach()
+                });
+            }
+        });
     });
 </script>
 </body>
