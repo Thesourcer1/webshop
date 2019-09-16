@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<!-- Fortæller det er html5 -->
+<!-- html starter og slutter hele dokumentet / lang=da: Fortæller siden er på dansk -->
+<html lang="da">
+
+<!-- I <head> har man opsætning - alt det som man ikke ser som selve indholdet -->
+<head>
+
+    <!-- Sætter tegnsætning til utf-8 som bl.a. tillader danske bogstaver -->
+    <meta charset="utf-8">
+
+    <!-- Titel som ses oppe i browserens tab mv. -->
+    <title>Sigende titel</title>
+
+    <!-- Metatags der fortæller at søgemaskiner er velkomne, hvem der udgiver siden og copyright information -->
+    <meta name="robots" content="All">
+    <meta name="author" content="Udgiver">
+    <meta name="copyright" content="Information om copyright">
+
+    <!-- Sikrer man kan benytte CSS ved at tilkoble en CSS fil -->
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+
+    <!-- Sikrer den vises korrekt på mobil, tablet mv. ved at tage ift. skærmstørrelse -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<!-- i <body> har man alt indhold på siden -->
+<body>
+
+<header>
+    <div class="logo">
+        <a href="index.html"><h2>Logo</h2></a>
+    </div>
+    <div class="menu">
+        <ul class="menutekst" style="list-style: none;">
+            <li><a href="produkter.html">Shop</a></li>
+            <li><a href="omvinen.html">Om vinen</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+
+    </div>
+</header>
+
+<section class="kurv">
+    <h1>Kurv</h1>
+
+    <div class="shopping-cart">
+        <div class="column-labels">
+            <label class="product-image">Billede</label>
+            <label class="product-details">Produkt</label>
+            <label class="product-price">Pris</label>
+            <label class="product-quantity">Antal</label>
+            <label class="product-removal">Fjern</label>
+            <label class="product-line-price">Total</label>
+        </div>
+
+        <div class="product">
+            <div class="product-image">
+                <img src="image/Produkter/vin1.png">
+            </div>
+            <div class="product-details">
+                <div class="product-title">Vin fra Italien 2002</div>
+                <p class="product-description">Vinen fremstår mørkerød nærmest lilla i glasset. Den er meget fyldig og
+                    har en kraftig duft af mørke modne frugter, blommer og morbær. Der er klare noter af egetræ fra
+                    lagringen. Vinen har en del varme over sig. Den smager af meget, utrolig rig på frugt og en stor
+                    kompleksitet i smagen af frugt og kryderier samt faste tanniner og en smule alkohol og syre i
+                    smagen. En vin til voksne mænd og kvinder.
+                </p>
+            </div>
+            <div class="product-price">229.00</div>
+            <div class="product-quantity">
+                <input type="number" value="1" min="1">
+            </div>
+            <div class="product-removal">
+                <button class="remove-product">
+                    Fjern
+                </button>
+            </div>
+            <div class="product-line-price">229.00</div>
+
+            <div class="totals">
+                <div class="totals-item">
+                    <label>Subtotal</label>
+                    <div class="totals-value" id="cart-subtotal">229.00</div>
+                </div>
+                <div class="totals-item">
+                    <label>Fragt</label>
+                    <div class="totals-value" id="cart-shipping">15.00</div>
+                </div>
+                <div class="totals-item totals-item-total">
+                    <label>Totalt</label>
+                    <div class="totals-value" id="cart-total">244.00</div>
+                </div>
+            </div>
+
+            <button class="checkout">Til bestilling</button>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer">
+        <div class="column column1">
+            <div class="container1">
+                <h2>Produkter</h2>
+                <a href="produkter.html">Vin</a>
+            </div>
+            <div class="container2">
+                <h2>om</h2>
+                <a href="kontakt.html">Karriere og internships</a>
+            </div>
+
+        </div>
+        <div class="column column2">
+            <div class="container3">
+                <h2>Customer support</h2>
+                <a href="kontakt.html">kontakt os</a>
+            </div>
+
+        </div>
+        <div class="social" style="display: block; font-size: 35px; margin: 21px 0 0 -4px;">
+            <a href="#" class="fa fa-facebook"></a>
+            <a href="#" class="fa fa-instagram"></a>
+        </div>
+    </div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    var taxRate = 0.05;
+    var shippingRate = 15.00;
+    var fadeTime = 300;
+
+
+    /* Assign actions */
+    $('.product-quantity input').change( function() {
+        updateQuantity(this);
+    });
+
+    $('.product-removal button').click( function() {
+        removeItem(this);
+    });
+
+
+    /* Recalculate cart */
+    function recalculateCart()
+    {
+        var subtotal = 0;
+
+        /* Sum up row totals */
+        $('.product').each(function () {
+            subtotal += parseFloat($(this).children('.product-line-price').text());
+        });
+
+        /* Calculate totals */
+        var shipping = (subtotal > 0 ? shippingRate : 0);
+        var total = subtotal + shipping;
+
+        /* Update totals display */
+        $('.totals-value').fadeOut(fadeTime, function() {
+            $('#cart-subtotal').html(subtotal.toFixed(2));
+            $('#cart-shipping').html(shipping.toFixed(2));
+            $('#cart-total').html(total.toFixed(2));
+            if(total == 0){
+                $('.checkout').fadeOut(fadeTime);
+            }else{
+                $('.checkout').fadeIn(fadeTime);
+            }
+            $('.totals-value').fadeIn(fadeTime);
+        });
+    }
+
+
+    /* Update quantity */
+    function updateQuantity(quantityInput)
+    {
+        /* Calculate line price */
+        var productRow = $(quantityInput).parent().parent();
+        var price = parseFloat(productRow.children('.product-price').text());
+        var quantity = $(quantityInput).val();
+        var linePrice = price * quantity;
+
+        /* Update line price display and recalc cart totals */
+        productRow.children('.product-line-price').each(function () {
+            $(this).fadeOut(fadeTime, function() {
+                $(this).text(linePrice.toFixed(2));
+                recalculateCart();
+                $(this).fadeIn(fadeTime);
+            });
+        });
+    }
+
+
+    /* Remove item from cart */
+    function removeItem(removeButton)
+    {
+        /* Remove row from DOM and recalc cart total */
+        var productRow = $(removeButton).parent().parent();
+        productRow.slideUp(fadeTime, function() {
+            productRow.remove();
+            recalculateCart();
+        });
+    }
+</script>
+
+</body>
+</html>
