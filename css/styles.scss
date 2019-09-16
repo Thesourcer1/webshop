@@ -37,6 +37,8 @@ img {
   height: auto; /* Højden skal tilpasse sig */
 }
 
+/* Header */
+
 header {
   height: 230px;
   padding: 30px;
@@ -76,6 +78,9 @@ a {
 li {
   text-decoration: none;
 }
+
+
+/* Slideshow på index */
 
 #slider {
   position: relative;
@@ -133,6 +138,282 @@ a.control_next {
   right: 0;
   border-radius: 2px 0 0 2px;
 }
+
+
+
+/* Produkter */
+
+.produkter {
+  display: flex;
+  justify-content: center;
+}
+
+.vinboks {
+  border: black 1px solid;
+  margin: 10px;
+  padding: 20px 30px 20px 30px;
+
+  .vinbillede {
+    height: 250px;
+    width: auto;
+    margin: auto;
+  }
+
+  .vintekst {
+    padding: 30px 0 20px 0;
+    margin-top: 10px;
+  }
+}
+
+.købsboks {
+  display: flex;
+  justify-content: space-between;
+
+  #antal {
+    width: 35%;
+    margin-top: 10px;
+    padding: 10px;
+    border: black 1px solid;
+    text-align: center;
+  }
+
+  .købknap {
+    padding: 10px;
+    margin-top: 10px;
+    border: black 1px solid;
+    width: 60%;
+    text-align: center;
+    background-color: #0C6987;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+      background-color: #0E85AB;
+    }
+  }
+}
+
+
+
+/* Enkeltprodukt */
+
+.beskrivelse {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+
+  .vin {
+    height: 450px;
+  }
+
+  .tekstbeskrivelse {
+    margin-left: 40px;
+    width: 40%;
+
+    .vinen {
+      font-size: 34px;
+      margin-bottom: 20px;
+    }
+
+    .prisen {
+      margin: 20px 0;
+      font-size: 24px;
+    }
+
+    #more {
+      display: none;
+    }
+
+    #myBtn {
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    .købsboks {
+      width: 250px;
+      padding-top: 20px;
+
+      #antal {
+        width: 30%;
+      }
+
+      .købknap {
+        width: 60%;
+      }
+    }
+  }
+}
+
+
+
+/* Kurv */
+
+.kurv {
+  width: 80%;
+  margin: 40px auto;
+}
+
+.product-image { float: left; width: 20%; }
+.product-details { float: left; width: 37%; }
+.product-price { float: left; width: 12%; }
+.product-quantity { float: left; width: 10%; }
+.product-removal { float: left; width: 9%; }
+.product-line-price { float: left; width: 12%; text-align: right; }
+
+/* This is used as the traditional .clearfix class */
+.group:before,
+.group:after {
+  content: '';
+  display: table;
+}
+
+.group:after {
+  clear: both;
+}
+
+.group {
+  zoom: 1;
+}
+
+
+/* Apply clearfix in a few places */
+.shopping-cart, .column-labels, .product, .totals-item {
+  @extend .group;
+}
+
+
+/* Apply dollar signs */
+.product .product-price:before, .product .product-line-price:before, .totals-value:before {
+  content: 'Kr.';
+}
+
+
+/* Body/Header stuff */
+
+h1 {
+  font-weight: bold;
+  font-size: 28px;
+  padding-bottom: 15px;
+}
+
+label {
+  color: darkolivegreen;
+}
+
+.shopping-cart {
+  margin-top: -45px;
+}
+
+
+/* Column headers */
+.column-labels {
+  label {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid gainsboro;
+  }
+
+  .product-image, .product-details, .product-removal {
+    text-indent: -9999px;
+  }
+}
+
+
+/* Product entries */
+.product {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid gainsboro;
+
+  .product-image {
+    text-align: center;
+    img {
+      width: 100px;
+    }
+  }
+
+  .product-details {
+    .product-title {
+      margin-right: 20px;
+      font-size: 22px;
+      font-weight: bold;
+      padding-bottom: 10px;
+    }
+    .product-description {
+      margin: 5px 20px 5px 0;
+      line-height: 1.4em;
+    }
+  }
+
+  .product-quantity {
+    input {
+      width: 40px;
+
+    }
+  }
+
+  .remove-product {
+    border: 0;
+    padding: 4px 8px;
+    background-color: #c66;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 3px;
+  }
+
+  .remove-product:hover {
+    background-color: #a44;
+  }
+}
+
+
+/* Totals section */
+.totals {
+  .totals-item {
+    float: right;
+    clear: both;
+    width: 100%;
+    margin-bottom: 10px;
+
+    label {
+      float: left;
+      clear: both;
+      width: 79%;
+      text-align: right;
+    }
+
+    .totals-value {
+      float: right;
+      width: 21%;
+      text-align: right;
+    }
+  }
+
+  .totals-item-total {
+  }
+}
+
+.checkout {
+  float: right;
+  border: 0;
+  margin-top: 20px;
+  padding: 6px 25px;
+  background-color: #6b6;
+  color: #fff;
+  font-size: 25px;
+  border-radius: 3px;
+
+}
+
+.checkout:hover {
+  background-color: #494;
+  cursor: pointer;
+}
+
+
+
+/* Footer */
 
 .footer{
 
